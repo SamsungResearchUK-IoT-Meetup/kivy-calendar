@@ -24,12 +24,17 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
+from kivy.config import Config
 
+# Load kivy files that describe the GUI
 Builder.load_file('newmeetingstatus.kv')
 Builder.load_file('schedulemeeting.kv')
 Builder.load_file('calendarwidget.kv')
 #Builder.load_file('statusbar.kv')
 
+# Set Initial Window Size
+Config.set('graphics', 'width', '550')
+Config.set('graphics', 'height', '750')
 
 class SamsungCalendar(BoxLayout):
 
