@@ -1,4 +1,5 @@
 # File Name: schedulemeeting.kv
+#:import schedulemeeting schedulemeeting
 
 #MIT License
 #Copyright (c) 2019 Samsung. n.herriot@samsung.com
@@ -39,41 +40,48 @@
 <ScheduleMeeting@StackLayout>:
     orientation: 'lr-tb'
     padding: 10
+    # Meeting name and attendees
     ScheduleLabel:
         text: '[b]Meeting Title[/b]'
     ScheduleTextInput:
+        id: title
         hint_text: 'name of meeting'
     ScheduleLabel:
         text: '[b]Location[/b]'
     ScheduleTextInput:
+        id: location
         hint_text: 'where the meeting is to be held'
     ScheduleLabel:
         text: '[b]Required people[/b]'
     ScheduleTextInput:
+        id: num_people
         hint_text: 'number of people e.g. 4'
     ScheduleLabel:
         text: '[b]Optional people[/b]'
     ScheduleTextInput:
+        id: optional_people
         hint_text: 'myname@email.com; myname2@email.com;'
 
-    #Slider for length of meeting
+    # Slider for length of meeting
     DescriptLabel:
         text: '[color=#37abc8ff][b]Length of meeting[/b][/color]'
     Slider:
 
         size_hint: [.7, .08]
-        id: slider
+        id: slider_meeting_length
         min: 0
         max: 8
         step: 1
         orientation: 'horizontal'
     Label:
         size_hint: [.1, .08]
-        text: str(slider.value)
+        text: str(slider_meeting_length.value)
 
+    # Meeting times
     ScheduleLabel:
         text: '[size=14px][b]Earliest meeting date[/b]'
     ShortSchedTextInput:
+        id: earliest_date
         hint_text: '1'
     DescriptLabel:
         text: '[color=#37abc8ff][b]Days time[/b][/color]'
@@ -81,6 +89,7 @@
     ScheduleLabel:
         text: '[size=14px][b]Latest meeting date[/b]'
     ShortSchedTextInput:
+        id: latest_date
         hint_text: '5'
     DescriptLabel:
         text: '[color=#37abc8ff][b]Days time[/b][/color]'
@@ -88,6 +97,7 @@
     ScheduleLabel:
         text: '[size=14px][b]Scheduling Deadline[/b]'
     ShortSchedTextInput:
+        id: schedule_deadline
         hint_text: '5'
     DescriptLabel:
         text: '[color=#37abc8ff][b]Days time[/b][/color]'
@@ -97,7 +107,6 @@
         text: '[color=#37abc8ff][b]Priority[/b][/color]'
 
     Slider:
-
         size_hint: [.7, .08]
         id: slider_priority
         min: 0
@@ -110,16 +119,6 @@
 
     Button:
         text: 'Start Scheduling'
+        on_release: root.start()
         size_hint: [.3, .08]
 
-
-#    Label:
-#        markup: True
-#        text: '[size=14px][b]Latest meeting date[/b]'
-#    TextInput:
-#        hint_text: 'where the meeting is to be held'
-#    Label:
-#        markup: True
-#        text: '[size=14px][b]Scheduling deadline[/b]'
-#    TextInput:
-#        hint_text: 'number of people e.g. 4'

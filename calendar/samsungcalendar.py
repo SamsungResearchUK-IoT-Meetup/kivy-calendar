@@ -32,7 +32,10 @@ Builder.load_file('calendarwidget.kv')
 
 
 class SamsungCalendar(BoxLayout):
-    pass
+
+    def start(self):
+        self.ids.result.text = "You clicked the 'Start Schedule' button"
+
 
 
 class SamsungCalendarApp(App):

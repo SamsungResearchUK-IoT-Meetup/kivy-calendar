@@ -29,9 +29,10 @@
         size_hint: 1, .8
         ScheduleMeeting:
             id: _schedule_meeting
-        #Button:
-        #    text: 'hello world'
+            samsung_calendar: root
+            calendar_widget: _calendar_widget
     StackLayout:
         size_hint: 1, .15
         CalendarWidget:
             id: _calendar_widget
+            samsung_calendar: root
