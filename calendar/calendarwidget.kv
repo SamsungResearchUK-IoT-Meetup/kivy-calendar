@@ -1,4 +1,5 @@
-# File Name: newmeetingstatus.kv
+# File Name: calendarwidget.kv
+#:import calendarwidget calendarwidget
 
 #MIT License
 #Copyright (c) 2019 Samsung. n.herriot@samsung.com
@@ -30,9 +31,12 @@
     Button:
         text: 'View Diagnostic'
         size_hint: [.5, .3]
+        #on_release: root.start()
+        on_release: root.color(*args)
     Button:
         text: 'View Final'
         size_hint: [.5, .3]
+        on_release: root.view_final()
     Label:
         markup: True
         text: '[size=12px][color=#37abc8ff][b]Number of Negotiations executed[/b][/color]'

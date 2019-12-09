@@ -1,4 +1,4 @@
-# File name: samsungcalendar.py
+# File name: calendarwidget.py
 """
 MIT License
 Copyright (c) 2019 Samsung. n.herriot@samsung.com
@@ -19,33 +19,25 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
-from kivy.app import App
-from kivy.lang import Builder
-from kivy.uix.anchorlayout import AnchorLayout
-from kivy.uix.boxlayout import BoxLayout
-from kivy.config import Config
-from kivy.uix.screenmanager import ScreenManager
-
-# Set Initial Window Size
-Config.set('graphics', 'width', '550')
-Config.set('graphics', 'height', '750')
-
-# Load kivy files that describe the GUI
-Builder.load_file('newmeetingstatus.kv')
-Builder.load_file('schedulemeeting.kv')
-Builder.load_file('calendarwidget.kv')
-Builder.load_file('samsungcalendar.kv')
+import kivy
+from kivy.uix.stacklayout import StackLayout
+from kivy.properties import NumericProperty, ListProperty
 
 
-class SamsungScreenManager(ScreenManager):
-    pass
+class CalendarWidget(StackLayout):
 
+    def view_final(self):
+        print("**** Final view being exposed ****")
 
-class SamsungScreenManagerApp(App):
-    def build(self):
-        return SamsungScreenManager()
+    def view_diagnostic(self):
+        print("**** Diagnostic view being exposed ****")
 
+    def color(self, instance):
+        self.samsung_calendar.manager.current = 'colorscreen'
+    def start(self):
+        print("*********** colour function called **********")
 
-if __name__ == "__main__":
-    SamsungScreenManagerApp().run()
+#    def unselect_all(self):
+#        for child in self.drawing_space.children:
+#            child.unselect()
+

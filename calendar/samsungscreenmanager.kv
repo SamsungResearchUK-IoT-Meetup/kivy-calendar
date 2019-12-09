@@ -1,4 +1,4 @@
-# File Name: samsungcalendar.kv
+# File Name: samsungscreenmanager.kv
 
 #MIT License
 #Copyright (c) 2019 Samsung. n.herriot@samsung.com
@@ -18,23 +18,27 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-<SamsungCalendar@Screen>:
-    name: "newmeetingscreen"
-    BoxLayout:
-        orientation: 'vertical'
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+<SamsungScreenManager>:
+    transition: FadeTransition()
+    color_picker: _color_picker
+    SamsungCalendar:
+    SecondWindow:
+    Screen:
+        name: 'calendarscreen'
         BoxLayout:
-            size_hint: 1, .05
-            NewMeetingStatus:
-                id: _newmeeting_status
-                height: 24
-        StackLayout:
-            size_hint: 1, .8
-            ScheduleMeeting:
-                id: _schedule_meeting
-                samsung_calendar: root
-                calendar_widget: _calendar_widget
-        StackLayout:
-            size_hint: 1, .15
-            CalendarWidget:
-                id: _calendar_widget
-                samsung_calendar: root
+            Label:
+                text: 'Calendar Screen'
+            Button:
+                text: 'New Meeting Screen'
+                on_press: root.current = 'newmeetingscreen'
+    Screen:
+        name: 'colorscreen'
+        ColorPicker:
+            id: _color_picker
+            Button:
+                text: "Select"
+                pos_hint: {'center_x': .75, 'y': .05}
+                size_hint: None, None
+                size: 150, 50
+                on_press: root.current = 'calendarscreen'
