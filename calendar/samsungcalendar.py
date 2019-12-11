@@ -36,6 +36,12 @@ Builder.load_file('newmeetingstatus.kv')
 Builder.load_file('schedulemeeting.kv')
 Builder.load_file('calendarwidget.kv')
 Builder.load_file('samsungcalendar.kv')
+Builder.load_file('days.kv')
+Builder.load_file('dates.kv')
+Builder.load_file('months.kv')
+Builder.load_file('select.kv')
+Builder.load_file('calendar.kv')
+
 
 
 class SamsungScreenManager(ScreenManager):

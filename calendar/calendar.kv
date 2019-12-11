@@ -1,0 +1,24 @@
+<Calendar@Screen>:
+    name: "calendarscreen"
+	canvas.before:
+		Color:
+			rgba: .5,.6,.7,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	orientation:'vertical'
+	BoxLayout:
+		size_hint: 1,.1
+		CalendarStatus:
+
+	BoxLayout:
+	    size_hint: 1, .1
+		Days:
+    GridLayout:
+        size_hint: 1, .7
+        cols: 7
+        rows: 6
+        Events:
+	BoxLayout:
+		size_hint: 1,.1
+		CalendarNav:

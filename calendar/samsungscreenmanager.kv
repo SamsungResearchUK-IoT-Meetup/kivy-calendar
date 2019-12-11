@@ -23,12 +23,16 @@
     transition: FadeTransition()
     color_picker: _color_picker
     SamsungCalendar:
-    SecondWindow:
+    Calendar:
     Screen:
         name: 'calendarscreen'
+        Button:
+            text: "hello world"
+    Screen:
+        name: 'testscreen'
         BoxLayout:
             Label:
-                text: 'Calendar Screen'
+                text: 'Test Screen'
             Button:
                 text: 'New Meeting Screen'
                 on_press: root.current = 'newmeetingscreen'
@@ -42,3 +46,4 @@
                 size_hint: None, None
                 size: 150, 50
                 on_press: root.current = 'calendarscreen'
+
