@@ -1,0 +1,342 @@
+<Event@RelativeLayout>:
+    canvas.before:
+        Color:
+            rgba: [0.21568627450980393, 0.6705882352941176, 0.7843137254901961, 0.5]
+        Line:
+            rectangle: 0, 0, self.width, self.height
+    Label:
+        text: "Event"
+
+
+<EventWeekend@RelativeLayout>:
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.27, 0.27, 1
+        Rectangle:
+            pos: 0,0
+            size: self.width * 1, self.height * 1
+
+        Color:
+            rgba: [0.21568627450980393, 0.6705882352941176, 0.7843137254901961, 0.5]
+        Line:
+            rectangle: 0, 0, self.width, self.height
+    Label:
+        text: "Event"
+
+
+<Events@GridLayout>:
+    size_hint: 1, .7
+    cols: 7
+    rows: 6
+    # First row
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]1[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]2[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]3[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]4[/i][/color]'
+
+    Event:
+        canvas:
+            Color:
+                rgba: [0.21568627450980393, 0.6705882352941176, 0.7843137254901961, 0.5]
+            Line:
+                width: 3
+                rectangle: 0, 0, self.width, self.height
+
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]5[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]6[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]7[/i][/color]'
+
+    # Second row
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]8[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]9[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]10[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]11[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]12[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]13[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]14[/i][/color]'
+
+    # Third row
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]15[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]16[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]17[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]18[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]19[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]20[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]21[/i][/color]'
+
+    # Fourth row
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]22[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]23[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]24[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]25[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]26[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]27[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]28[/i][/color]'
+
+    # Fifth row
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]29[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]30[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]31[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]32[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]33[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]34[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]35[/i][/color]'
+
+    # Sixth row
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]36[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]37[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]38[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]39[/i][/color]'
+
+    Event:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]40[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]41[/i][/color]'
+
+    EventWeekend:
+        Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            size_hint: .2, .2
+            pos_hint: {'x': 0, 'top': 1}
+            markup: True
+            text: '[size=10px][color=#37abc8ff][i]42[/i][/color]'

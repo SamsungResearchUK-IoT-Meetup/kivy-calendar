@@ -1,24 +1,26 @@
 <Calendar@Screen>:
     name: "calendarscreen"
-	canvas.before:
-		Color:
-			rgba: .5,.6,.7,1
-		Rectangle:
-			pos: self.pos
-			size: self.size
-	orientation:'vertical'
+	# This contains a status area with a back/forward month button, the active month and active year
 	BoxLayout:
-		size_hint: 1,.1
-		CalendarStatus:
+	    orientation: 'vertical'
+	    CalendarStatus:
+	        id: _calendar_status
+	        calendar: root
+		    size_hint: [1, .1]
 
-	BoxLayout:
-	    size_hint: 1, .1
-		Days:
-    GridLayout:
-        size_hint: 1, .7
-        cols: 7
-        rows: 6
+	# This contains the 7 days of the week on the top of the calendar grid
+	    Days:
+	        id: _days
+	        size_hint: [1, .1]
+
+	# This contains the 42 boxes that represent the full month of days with space for start and end days of previous month.
         Events:
-	BoxLayout:
-		size_hint: 1,.1
-		CalendarNav:
+            id: _events
+            calendar: root
+
+	# This contains a bottom button bar which allows us to go back to the previous screen
+	    CalendarNav:
+	        id: _calendar_nav
+	        calendar: root
+		    size_hint: [1, .1]
+

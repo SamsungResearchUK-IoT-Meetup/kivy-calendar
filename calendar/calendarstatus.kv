@@ -1,17 +1,25 @@
+# File Name: calendarstatus.kv
+#:import calendarstatus calendarstatus
+
 <CalendarStatus@BoxLayout>:
     orientation: "horizontal"
 	cal_year: year
 	cal_month: month
+	padding: 5
     Button:
+        size_hint: [.75, 1]
         text: "Previous Month"
+        on_release: root.previous_month()
 
 	Label:
 		id: month
 		markup: True
 		text: '[size=24px][color=#37abc8ff]Month[/color]'
-	Lable:
+	Label:
 	    id: year
 	    markup: True
 	    text: '[size=18px][color=#37abc8ff][i]Year[/i][/color]'
     Button:
+        size_hint: [.75, .9]
         text: "Next Month"
+        on_release: root.next_month()
