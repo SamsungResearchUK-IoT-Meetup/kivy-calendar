@@ -1,3 +1,24 @@
+# File Name: schedulemeeting.kv
+#:import events events
+
+#MIT License
+#Copyright (c) 2019 Samsung. n.herriot@samsung.com
+#Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
+#The above copyright notice and this permission notice shall be included in all
+#copies or substantial portions of the Software.
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#SOFTWARE.
+
 <Event@RelativeLayout>:
     canvas.before:
         Color:
@@ -28,10 +49,14 @@
     size_hint: 1, .7
     cols: 7
     rows: 6
+    # Properties of ID's for all calendar days
+    e1: _e1
+    e2: _e2
     # First row
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e1
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -39,6 +64,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e2
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -46,12 +72,14 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e3
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
             text: '[size=10px][color=#37abc8ff][i]3[/i][/color]'
 
     Event:
+            id: e4
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
@@ -67,6 +95,7 @@
                 rectangle: 0, 0, self.width, self.height
 
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e5
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -74,6 +103,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e6
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -81,6 +111,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e7
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -90,6 +121,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e8
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -97,6 +129,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e9
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -104,6 +137,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e10
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -111,6 +145,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e11
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -118,6 +153,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e12
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -125,6 +161,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e13
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -132,6 +169,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e14
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -141,6 +179,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e15
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -148,6 +187,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e16
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -155,6 +195,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e17
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -162,6 +203,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e18
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -169,6 +211,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e19
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -176,6 +219,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e20
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -183,6 +227,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e21
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -192,6 +237,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e22
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -199,6 +245,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e23
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -206,6 +253,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e24
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -213,6 +261,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e25
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -220,6 +269,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e26
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -227,6 +277,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e27
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -234,6 +285,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e28
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -243,6 +295,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e29
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -250,6 +303,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e30
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -257,6 +311,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e31
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -264,6 +319,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e32
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -271,6 +327,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e33
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -278,6 +335,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e34
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -285,6 +343,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e35
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -294,6 +353,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e36
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -301,6 +361,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e37
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -308,6 +369,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e38
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -315,6 +377,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e39
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -322,6 +385,7 @@
 
     Event:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e40
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -329,6 +393,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e41
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
@@ -336,6 +401,7 @@
 
     EventWeekend:
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e42
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True

@@ -2,9 +2,12 @@
     name: "calendarscreen"
 	# This contains a status area with a back/forward month button, the active month and active year
 	BoxLayout:
+	    name: "box layout"
+	    id: _box_layout
 	    orientation: 'vertical'
 	    CalendarStatus:
 	        id: _calendar_status
+	        events: _events
 	        calendar: root
 		    size_hint: [1, .1]
 
@@ -20,6 +23,7 @@
 
 	# This contains a bottom button bar which allows us to go back to the previous screen
 	    CalendarNav:
+	        events2: _events
 	        id: _calendar_nav
 	        calendar: root
 		    size_hint: [1, .1]
