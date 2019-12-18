@@ -32,11 +32,11 @@
         text: 'View Diagnostic'
         size_hint: [.5, .3]
         #on_release: root.start()
-        on_release: root.color(*args)
+        on_release: root.view_diagnostic(*args)
     Button:
         text: 'View Final'
         size_hint: [.5, .3]
-        on_release: root.view_final()
+        on_release: root.view_final(*args)
     Label:
         markup: True
         text: '[size=12px][color=#37abc8ff][b]Number of Negotiations executed[/b][/color]'

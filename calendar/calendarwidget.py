@@ -26,11 +26,13 @@ from kivy.properties import NumericProperty, ListProperty
 
 class CalendarWidget(StackLayout):
 
-    def view_final(self):
+    def view_final(self, instance):
         print("**** Final view being exposed ****")
+        self.samsung_calendar.manager.current = 'colorscreen'
 
-    def view_diagnostic(self):
+    def view_diagnostic(self, instance):
         print("**** Diagnostic view being exposed ****")
+        self.samsung_calendar.manager.current = 'calendarscreen'
 
     def color(self, instance):
         self.samsung_calendar.manager.current = 'colorscreen'

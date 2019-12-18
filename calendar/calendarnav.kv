@@ -1,4 +1,5 @@
-# File Name: samsungscreenmanager.kv
+# File Name: calendarwidget.kv
+#:import calendarnav calendarnav
 
 #MIT License
 #Copyright (c) 2019 Samsung. n.herriot@samsung.com
@@ -18,28 +19,13 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#:import FadeTransition kivy.uix.screenmanager.FadeTransition
-<SamsungScreenManager>:
-    transition: FadeTransition()
-    color_picker: _color_picker
-    SamsungCalendar:
-    Calendar:
-    Screen:
-        name: 'testscreen'
-        BoxLayout:
-            Label:
-                text: 'Test Screen'
-            Button:
-                text: 'New Meeting Screen'
-                on_press: root.current = 'newmeetingscreen'
-    Screen:
-        name: 'colorscreen'
-        ColorPicker:
-            id: _color_picker
-            Button:
-                text: "Select"
-                pos_hint: {'center_x': .75, 'y': .05}
-                size_hint: None, None
-                size: 150, 50
-                on_press: root.current = 'calendarscreen'
-
+<CalendarNav@BoxLayout>:
+    orientation: 'horizontal'
+    Button:
+        size_hint: [.25, .8]
+        text: 'Go Back'
+        on_release: root.go_back(*args)
+    Label:
+        markup: True
+        text: '[size=18px][color=#37abc8ff][i]Samsung[i][/color][sub]Calendar[/sub][b]AI[/b]'
+        pos: 1,1
