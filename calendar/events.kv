@@ -50,8 +50,8 @@
     cols: 7
     rows: 6
     # Properties of ID's for all calendar days
-    e1: _e1
-    e2: _e2
+    #e1: _e1
+    #e2: _e2
     # First row
 
     Event:
@@ -79,22 +79,25 @@
             text: '[size=10px][color=#37abc8ff][i]3[/i][/color]'
 
     Event:
-            id: e4
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+            id: e4
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
             markup: True
             text: '[size=10px][color=#37abc8ff][i]4[/i][/color]'
 
     Event:
-        canvas:
-            Color:
-                rgba: [0.21568627450980393, 0.6705882352941176, 0.7843137254901961, 0.5]
-            Line:
-                width: 3
-                rectangle: 0, 0, self.width, self.height
+        #id: ev5
+        #canvas:
+        #    Color:
+        #        rgba: [0.21568627450980393, 0.6705882352941176, 0.7843137254901961, 0.5]
+        #    Line:
+        #        width: 3
+        #        rectangle: 0, 0, self.width, self.height
 
         Label:        # TODO make this dynamic so we don't have to repeat 42 times!
+
+
             id: e5
             size_hint: .2, .2
             pos_hint: {'x': 0, 'top': 1}
