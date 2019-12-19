@@ -31,9 +31,11 @@
 
 
 <ScheduleTextInput@TextInput>:
+    markup: True
     size_hint: [.5, .08]
 
 <ShortSchedTextInput@TextInput>:
+    markup: True
     size_hint: [.2, .08]
 
 
@@ -52,13 +54,15 @@
         id: location
         hint_text: 'where the meeting is to be held'
     ScheduleLabel:
+        id: required_people_label
         text: '[b]Required people[/b]'
     ScheduleTextInput:
-        id: num_people
-        hint_text: 'number of people e.g. 4'
+        id: required_people
+        hint_text: 'jo.brown@email.com ; sam@email.com'
     ScheduleLabel:
         text: '[b]Optional people[/b]'
     ScheduleTextInput:
+        markup: True
         id: optional_people
         hint_text: 'myname@email.com; myname2@email.com;'
 
