@@ -128,7 +128,9 @@ class ScheduleMeeting(StackLayout):
                 calendar_event['scheduling_deadline'] = validate_datetime_field(self.ids.schedule_deadline)
             except arrow.arrow.parser.ParserError:
                 validated = False
+
         calendar_event['location'] = self.ids.location.text
+
         # Validate emails for 'optional people' field if supplied
         if self.ids.optional_people.text:
             valid, cleaned_emails = check_emails(self.ids.optional_people.text)
@@ -139,24 +141,51 @@ class ScheduleMeeting(StackLayout):
                 self.ids.optional_people.text = 'Illegal value, try: my.name@email.com'
                 self.ids.optional_people_label.text = '[color=#ff0000][b]Optional people[/b][/color]'
                 validated = False
+
         calendar_event['priority'] = self.ids.slider_priority.value
 
         ###########################
         # Sanity check validation #
         ###########################
-        # Check earliest/latest times make sense
-        if calendar_event['latest'] < calendar_event['earliest']:
+        # Check required fields exist
+        if not calendar_event["title"]:
             validated = False
-            self.ids.latest_date.text = "Latest cannot come before earliest"
-        # Check scheduling deadline is not after the latest date
-        # TODO: Smarter check taking length of meeting into account
-        if calendar_event['scheduling_deadline'] and calendar_event['latest'] < calendar_event['scheduling_deadline']:
+            self.ids.title_label.text = '[color=#ff0000]{}[/color]'.format('[b]Meeting Title[/b]')
+        if not calendar_event["length"]:
             validated = False
-            self.ids.schedule_deadline.text = "Scheduling deadline must be before latest"
+            self.ids.meeting_length_label.text = '[color=#ff0000]{}[/color]'.format('[b]Length of meeting[/b]')
+        if not calendar_event["earliest"]:
+            validated = False
+            self.ids.earliest_date_label.text = '[color=#ff0000]{}[/color]'.format(
+                '[size=14px][b]Earliest meeting time[/b]')
+        if not calendar_event["latest"]:
+            validated = False
+            self.ids.latest_date_label.text = '[color=#ff0000]{}[/color]'.format(
+                '[size=14px][b]Latest meeting time[/b]')
+        if not calendar_event["required_attendees"]:
+            validated = False
+            self.ids.required_people_label.text = '[color=#ff0000]{}[/color]'.format('[b]Required people[/b]')
+
+        if validated:
+            # Check earliest/latest times make sense
+            if calendar_event['latest'] < calendar_event['earliest']:
+                validated = False
+                self.ids.latest_date.text = "Latest cannot come before earliest"
+            # Check scheduling deadline is not after the latest date
+            # TODO: Smarter check taking length of meeting into account
+            elif calendar_event['scheduling_deadline'] and calendar_event['latest'] < calendar_event[
+                'scheduling_deadline']:
+                validated = False
+                self.ids.schedule_deadline.text = "Scheduling deadline must be before latest"
 
         if validated:
             # Reset field labels
+            self.ids.title_label.text = '[b]Meeting Title[/b]'
+            self.ids.meeting_length_label.text = '[b]Length of meeting[/b]'
+            self.ids.earliest_date_label.text = '[size=14px][b]Earliest meeting time[/b]'
+            self.ids.latest_date_label.text = '[size=14px][b]Latest meeting time[/b]'
             self.ids.required_people_label.text = '[b]Required people[/b]'
+
             self.ids.optional_people_label.text = '[b]Optional people[/b]'
 
             # Pass values to the agent to be calculated

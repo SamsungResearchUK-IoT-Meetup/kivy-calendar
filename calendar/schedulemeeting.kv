@@ -44,6 +44,7 @@
     padding: 10
     # Meeting name and attendees
     ScheduleLabel:
+        id: title_label
         text: '[b]Meeting Title[/b]'
     ScheduleTextInput:
         id: title
@@ -69,6 +70,7 @@
 
     # Slider for length of meeting
     DescriptLabel:
+        id: meeting_length_label
         text: '[color=#37abc8ff][b]Length of meeting[/b][/color]'
     Slider:
 
@@ -84,12 +86,14 @@
 
     # Meeting times
     ScheduleLabel:
+        id: earliest_date_label
         text: '[size=14px][b]Earliest meeting time[/b]'
     ScheduleTextInput:
         id: earliest_date
         hint_text: 'YYYY-MM-DD hh:mm:ss'
 
     ScheduleLabel:
+        id: latest_date_label
         text: '[size=14px][b]Latest meeting time[/b]'
     ScheduleTextInput:
         id: latest_date
