@@ -18,11 +18,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-
+from datetime import timedelta
 from email.utils import parseaddr
 
 import arrow
 from kivy.uix.stacklayout import StackLayout
+
+TD_15MIN = timedelta(minutes=15)
 
 
 def check_email(dirty_email_string):
