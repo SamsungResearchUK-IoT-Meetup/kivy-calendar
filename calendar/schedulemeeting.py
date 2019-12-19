@@ -19,26 +19,46 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from kivy.uix.stacklayout import StackLayout
 from email.utils import parseaddr
+
+from kivy.uix.stacklayout import StackLayout
+
+
+def check_email(dirty_email_string):
+    """
+    Validate that the supplied string is a valid email address.
+
+    Args:
+        dirty_email_string: the string to check
+
+    Returns:
+        None if string is not valid, the cleaned string otherwise
+    """
+    email = dirty_email_string.strip()
+    clean_email = parseaddr(email)
+    if clean_email[1] == '':
+        return None
+    else:
+        return clean_email[1]
+
+
+def check_emails(dirty_emails_string):
+    # Validate Num People. This is a list of emails separated via ';'. So we need split the text string into
+    # a list, remove white space and then validate
+    clean_list = []
+    dirty_list = dirty_emails_string.split(';')
+
+    for email in dirty_list:
+        clean_email = check_email(email)
+        if not clean_email:
+            return False, dirty_list
+        clean_list.append(clean_email)
+    return True, clean_list
+
 
 class ScheduleMeeting(StackLayout):
 
-    def check_email(self, dirty_string):
-        # Validate Num People. This is a list of emails separated via ';'. So we need split the text string into a list, remove white space and then validate
-        clean_list = []
-        dirty_list = dirty_string.split(';')
-
-        for email in dirty_list:
-            email = email.strip()
-            clean_email = parseaddr(email)
-            if (clean_email[1]==''):
-                return (False, dirty_list)
-            clean_list.append(clean_email)
-        return (True, clean_list)
-
     def start(self):
-
         validated = True
         calendarEvent = {
             "title": None,
@@ -81,6 +101,3 @@ class ScheduleMeeting(StackLayout):
         # TODO Pass this dictionary to the 'Calculate' event function
         # On response:  1) Capture output iCalendar events and place in a calendar event object.
         #               2) Allow the buttons to be activated in the calendarWidget.
-
-
-
