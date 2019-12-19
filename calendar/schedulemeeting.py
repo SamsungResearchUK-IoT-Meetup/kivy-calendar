@@ -83,15 +83,15 @@ class ScheduleMeeting(StackLayout):
             # Required
             "title": None,
             "length": None,
-            "earliest": None,  # TODO Make this a time date object
-            "latest": None,  # TODO Make this a time date object
+            "earliest": None,
+            "latest": None,
             "required_attendees": None,
-            "organiser": None,  # TODO make this a single email address that is checked and formatted
+            "organiser": None,
 
             # Optional
-            "scheduling_deadline": None,  # TODO Make this a time date object
+            "scheduling_deadline": None,
             "location": "",
-            "optional_attendees": [],  # TODO make this a list of email addresses that are checked and formatted
+            "optional_attendees": [],
             "priority": 0
         }
 
@@ -191,7 +191,3 @@ class ScheduleMeeting(StackLayout):
             # Pass values to the agent to be calculated
             print("Calculating best time for calendar invite...")
             self.process_calendar_event(calendar_event)
-
-        # TODO Pass this dictionary to the 'Calculate' event function
-        # On response:  1) Capture output iCalendar events and place in a calendar event object.
-        #               2) Allow the buttons to be activated in the calendarWidget.
