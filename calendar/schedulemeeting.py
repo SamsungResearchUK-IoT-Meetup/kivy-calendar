@@ -57,6 +57,13 @@ def check_emails(dirty_emails_string):
 
 
 class ScheduleMeeting(StackLayout):
+    def get_organiser(self):
+        # TODO: Override
+        return "Organiser"
+
+    def process_calendar_event(self, calendar_event):
+        # TODO: Override
+        print(calendar_event)
 
     def start(self):
         validated = True
