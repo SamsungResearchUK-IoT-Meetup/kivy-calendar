@@ -21,6 +21,7 @@ SOFTWARE.
 
 from email.utils import parseaddr
 
+import arrow
 from kivy.uix.stacklayout import StackLayout
 
 
@@ -54,6 +55,14 @@ def check_emails(dirty_emails_string):
             return False, dirty_list
         clean_list.append(clean_email)
     return True, clean_list
+
+
+def validate_datetime_field(dt_field):
+    try:
+        return arrow.get(dt_field.text)
+    except arrow.arrow.parser.ParserError as pe:
+        dt_field.text = "Invalid ISO DateTime String"
+        raise pe
 
 
 class ScheduleMeeting(StackLayout):
@@ -90,8 +99,14 @@ class ScheduleMeeting(StackLayout):
         ###################
         calendar_event['title'] = self.ids.title.text
         calendar_event['length'] = self.ids.slider_meeting_length.value
-        calendar_event['earliest'] = self.ids.earliest_date
-        calendar_event['latest'] = self.ids.latest_date
+        try:
+            calendar_event['earliest'] = validate_datetime_field(self.ids.earliest_date)
+        except arrow.arrow.parser.ParserError:
+            validated = False
+        try:
+            calendar_event['latest'] = validate_datetime_field(self.ids.latest_date)
+        except arrow.arrow.parser.ParserError:
+            validated = False
         # Validate emails for 'required people' field
         valid, cleaned_emails = check_emails(self.ids.required_people.text)
         if valid:
@@ -106,7 +121,11 @@ class ScheduleMeeting(StackLayout):
         ###################
         # Optional fields #
         ###################
-        calendar_event['scheduling_deadline'] = self.ids.schedule_deadline if self.ids.schedule_deadline else None
+        if self.ids.schedule_deadline.text:
+            try:
+                calendar_event['scheduling_deadline'] = validate_datetime_field(self.ids.schedule_deadline)
+            except arrow.arrow.parser.ParserError:
+                validated = False
         calendar_event['location'] = self.ids.location.text
         # Validate emails for 'optional people' field if supplied
         if self.ids.optional_people.text:
