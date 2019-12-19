@@ -139,6 +139,19 @@ class ScheduleMeeting(StackLayout):
                 validated = False
         calendar_event['priority'] = self.ids.slider_priority.value
 
+        ###########################
+        # Sanity check validation #
+        ###########################
+        # Check earliest/latest times make sense
+        if calendar_event['latest'] < calendar_event['earliest']:
+            validated = False
+            self.ids.latest_date.text = "Latest cannot come before earliest"
+        # Check scheduling deadline is not after the latest date
+        # TODO: Smarter check taking length of meeting into account
+        if calendar_event['scheduling_deadline'] and calendar_event['latest'] < calendar_event['scheduling_deadline']:
+            validated = False
+            self.ids.schedule_deadline.text = "Scheduling deadline must be before latest"
+
         if validated:
             # Reset field labels
             self.ids.required_people_label.text = '[b]Required people[/b]'
