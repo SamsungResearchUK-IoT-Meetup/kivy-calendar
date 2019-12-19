@@ -74,12 +74,12 @@
         size_hint: [.7, .08]
         id: slider_meeting_length
         min: 0
-        max: 8
+        max: 12
         step: 1
         orientation: 'horizontal'
     Label:
         size_hint: [.1, .08]
-        text: str(slider_meeting_length.value)
+        text: str(schedulemeeting.TD_15MIN * slider_meeting_length.value)
 
     # Meeting times
     ScheduleLabel:

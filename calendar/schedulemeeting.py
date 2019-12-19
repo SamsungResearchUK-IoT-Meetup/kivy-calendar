@@ -18,9 +18,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+from datetime import timedelta
 
 from kivy.uix.stacklayout import StackLayout
 from email.utils import parseaddr
+
+TD_15MIN = timedelta(minutes=15)
+
 
 class ScheduleMeeting(StackLayout):
 
