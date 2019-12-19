@@ -67,43 +67,67 @@ class ScheduleMeeting(StackLayout):
 
     def start(self):
         validated = True
-        calendarEvent = {
+
+        calendar_event = {
+            # Required
             "title": None,
-            "location": None,
-            "required_people": None,
-            "optional_people": None,    # TODO make this a list of email addresses that are checked and formatted
-            "meeting_length": 0,
-            "earliest_date": 0,         # TODO Make this a time date object
-            "latest_date": 0,           # TODO Make this a time date object
-            "schedule_deadline": 0,
+            "length": None,
+            "earliest": None,  # TODO Make this a time date object
+            "latest": None,  # TODO Make this a time date object
+            "required_attendees": None,
+            "organiser": None,  # TODO make this a single email address that is checked and formatted
+
+            # Optional
+            "scheduling_deadline": None,  # TODO Make this a time date object
+            "location": "",
+            "optional_attendees": [],  # TODO make this a list of email addresses that are checked and formatted
             "priority": 0
         }
 
         print("You clicked the 'Start Schedule' button")
-        calendarEvent['title'] = self.ids.title.text
-        calendarEvent['location'] = self.ids.location.text
-        #calendarEvent['required_people'] = self.ids.required_people.text
-        calendarEvent['optional_people'] = self.ids.optional_people.text
-        calendarEvent['meeting_length'] = self.ids.slider_meeting_length.value
-        calendarEvent['earliest_date'] = self.ids.earliest_date
-        calendarEvent['latest_data'] = self.ids.latest_date
-        calendarEvent['shedule_deadline'] = self.ids.schedule_deadline
-        calendarEvent['priority'] = self.ids.slider_priority.value
-
+        ###################
+        # Required fields #
+        ###################
+        calendar_event['title'] = self.ids.title.text
+        calendar_event['length'] = self.ids.slider_meeting_length.value
+        calendar_event['earliest'] = self.ids.earliest_date
+        calendar_event['latest'] = self.ids.latest_date
         # Validate emails for 'required people' field
-        cleaned_email = self.check_email(self.ids.required_people.text)
-        if cleaned_email[0]:
-            calendarEvent['required_people'] = cleaned_email[1]     # Place the cleaned list of emails into the dictionary
+        valid, cleaned_emails = check_emails(self.ids.required_people.text)
+        if valid:
+            # Place the cleaned list of emails into the dictionary
+            calendar_event['required_attendees'] = cleaned_emails
         else:
             self.ids.required_people.text = 'Illegal value, try: my.name@email.com'
             self.ids.required_people_label.text = '[color=#ff0000][b]Required people[/b][/color]'
             validated = False
+        calendar_event["organiser"] = self.get_organiser()
+
+        ###################
+        # Optional fields #
+        ###################
+        calendar_event['scheduling_deadline'] = self.ids.schedule_deadline if self.ids.schedule_deadline else None
+        calendar_event['location'] = self.ids.location.text
+        # Validate emails for 'optional people' field if supplied
+        if self.ids.optional_people.text:
+            valid, cleaned_emails = check_emails(self.ids.optional_people.text)
+            if valid:
+                # Place the cleaned list of emails into the dictionary
+                calendar_event['optional_attendees'] = cleaned_emails
+            else:
+                self.ids.optional_people.text = 'Illegal value, try: my.name@email.com'
+                self.ids.optional_people_label.text = '[color=#ff0000][b]Optional people[/b][/color]'
+                validated = False
+        calendar_event['priority'] = self.ids.slider_priority.value
 
         if validated:
-            # Pass values to the agent to be calculated
+            # Reset field labels
             self.ids.required_people_label.text = '[b]Required people[/b]'
+            self.ids.optional_people_label.text = '[b]Optional people[/b]'
+
+            # Pass values to the agent to be calculated
             print("Calculating best time for calendar invite...")
-            #
+            self.process_calendar_event(calendar_event)
 
         # TODO Pass this dictionary to the 'Calculate' event function
         # On response:  1) Capture output iCalendar events and place in a calendar event object.
