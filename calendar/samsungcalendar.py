@@ -41,7 +41,7 @@ Builder.load_file('days.kv')
 Builder.load_file('events.kv')
 Builder.load_file('calendarnav.kv')
 Builder.load_file('calendarstatus.kv')
-Builder.load_file('calendar.kv')
+Builder.load_file('calendarmain.kv')
 
 
 

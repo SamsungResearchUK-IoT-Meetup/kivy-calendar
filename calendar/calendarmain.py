@@ -1,4 +1,4 @@
-# File name: calendarwidget.py
+# File name: calendar.py
 """
 MIT License
 Copyright (c) 2019 Samsung. n.herriot@samsung.com
@@ -20,26 +20,14 @@ SOFTWARE.
 """
 
 import kivy
-from kivy.uix.stacklayout import StackLayout
-from kivy.properties import NumericProperty, ListProperty
+from kivy.uix.screenmanager import Screen
 
 
-class CalendarWidget(StackLayout):
+class Calendar(Screen):
 
-    def view_final(self, instance):
-        print("**** Final view being exposed ****")
-        #self.samsung_calendar.manager.current = 'colorscreen'
+    def on_enter(self):
+        print("Calendar Class called. On_Event: redraw the calendar")
 
-
-
-    def view_diagnostic(self, instance):
-        print("**** Diagnostic view being exposed ****")
-        self.samsung_calendar.manager.current = 'calendarscreen'
-
-    def color(self, instance):
-        self.samsung_calendar.manager.current = 'colorscreen'
-    def start(self):
-        print("*********** colour function called **********")
 
 #    def unselect_all(self):
 #        for child in self.drawing_space.children:

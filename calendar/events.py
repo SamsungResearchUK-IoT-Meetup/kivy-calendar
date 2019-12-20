@@ -25,7 +25,12 @@ from kivy.properties import NumericProperty, ListProperty
 
 
 class Events(GridLayout):
-    pass
+
+    # This method will read events from a JSON file or from the main application object, update the events dates and draw the event in the correct
+    # event number box on the calendar
+    def draw_events(self):
+
+        print("Drawing events")
 
 
 class Event(RelativeLayout):

@@ -21,6 +21,7 @@ class CalendarStatus(BoxLayout):
         Clock.schedule_once(self.set_date_callback, 1)
         # self.set_date_callback(None)
 
+
     def set_date_callback(self, dt):
         print("Callback has been run")
         self._create_cal_view(self.today)
@@ -92,3 +93,6 @@ class CalendarStatus(BoxLayout):
     def active_day_post_processing(self, day_date, event):
         # TODO: Override
         print("Day: {}; Event: {}".format(day_date, event))
+
+    def test(self):
+        print("Test method being called from CalendarStatus object")
