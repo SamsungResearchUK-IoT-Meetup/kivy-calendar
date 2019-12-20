@@ -75,7 +75,7 @@ class CalendarStatus(BoxLayout):
         # But we only place a date onto an event beginning on the first day of the Month and count upwards.
         for idx, event in enumerate(self.parent.parent.ids._events.ids):
             print("\nindex is: {}  Event is: {}".format(idx, event))
-            if (idx >= first_day_of_month_num) & (idx <= (first_day_of_month_num + num_of_days_in_month - 1)):
+            if (idx >= first_day_of_month_num) and (idx <= (first_day_of_month_num + num_of_days_in_month - 1)):
                 new_date_text = idx - first_day_of_month_num + 1
                 print("**** Start populating events **** Date: {}".format(new_date_text))
                 print(" Current event text is: {}.".format(self.parent.parent.ids._events.ids[event].text))
