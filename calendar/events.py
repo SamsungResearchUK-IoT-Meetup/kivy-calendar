@@ -21,7 +21,6 @@ SOFTWARE.
 
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.relativelayout import RelativeLayout
-from kivy.properties import NumericProperty, ListProperty
 
 
 class Events(GridLayout):
@@ -29,4 +28,13 @@ class Events(GridLayout):
 
 
 class Event(RelativeLayout):
-    pass
+    def draw_meeting(self, meeting_start, meeting_len, meeting_color_args):
+        """
+        Draw a meeting within this event day.
+
+        Args:
+            meeting_start: the event start time as a fraction of a 24-hour day
+            meeting_len: the event length as a fraction of a 24-hour day
+            meeting_color_args: the color arguments to color the meeting with
+        """
+        pass
