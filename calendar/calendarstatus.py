@@ -84,7 +84,7 @@ class CalendarStatus(BoxLayout):
                     "[size=10px][color=#37abc8ff][i]{}[/i][/color]".format(new_date_text)
 
                 self.active_day_post_processing(date(selected_date.year, selected_date.month, new_date_text),
-                                                self.parent.parent.ids._events.ids[event])
+                                                self.parent.parent.ids._events.ids[event].parent)
             else:
                 self.parent.parent.ids._events.ids[event].text = \
                     "[size=10px][color=#37abc8ff][i]{}[/i][/color]".format(" ")
