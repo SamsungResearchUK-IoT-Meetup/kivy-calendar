@@ -9,4 +9,4 @@ Kivy-examples==1.11.1
 Kivy-Garden==0.1.4
 Pygments==2.5.1
 requests==2.22.0
-urllib3==1.25.7
+urllib3==1.25.8
